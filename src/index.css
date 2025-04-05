@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@font-face {
+    font-family: "NewFont";
+    src: url("./assets/fonts/UnifrakturMaguntia-Regular.ttf");
+}
+
+@font-face {
+  font-family: "AnotherFont";
+  src: url("./assets/fonts/NotoSerif-Black.ttf")
+}
+
+@layer {
+  body {
+    @apply h-screen w-full bg-[#f0f0f0];
+  }
+}
+
+@theme{
+    --font-newfont: "NewFont", sans-serif;
+    --font-anotherfont: "AnotherFont", sans-serif;
+}
