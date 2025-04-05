@@ -24,10 +24,7 @@ function EndPage() {
           </h1>
         </div>
         <div className="flex justify-center items-center">
-          <img
-            className="w-[45%] mr-5"
-            src="http://juliovela.com//NYT/mini/images/A_HA_BLUE_SHADOW_5.gif"
-          />
+          <img className="w-[45%] mr-5" src="/images/A_HA_BLUE_SHADOW_5.gif" />
         </div>
         <div className="flex flex-col justify-center items-center mt-8">
           <Link
