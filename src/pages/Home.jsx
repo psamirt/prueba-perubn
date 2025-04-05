@@ -109,7 +109,6 @@ function Home() {
               />
             </div>
           </div>
-
           <div>
             <div className="flex bg-[#a7d8ff] w-full h-[66px] justify-between items-center">
               <div className="p-2 items-center flex">
