@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
-import { Link, useNavigate } from "react-router";
 import Keyboard from "../components/Keyboard";
 import Crucigrama from "../components/Crucigrama";
 import { questions } from "../assets/utils/crossword";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 
-function Home() {
+function Home({ setCurrentPage }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedCell, setSelectedCell] = useState({ x: 2, y: 0 });
   const [userGrid, setUserGrid] = useState({});
   const [input, setInput] = useState("");
   const currentQuestion = questions[currentQuestionIndex];
   const [direction, setDirection] = useState("horizontal");
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (currentQuestionIndex <= 4) {
@@ -22,10 +20,6 @@ function Home() {
       setDirection("vertical");
     }
   }, [currentQuestionIndex]);
-
-  setTimeout(() => {
-    navigate("/download");
-  }, 50000);
 
   const insertLetter = (letter) => {
     if (selectedCell) {
@@ -79,24 +73,21 @@ function Home() {
     <div className="flex flex-col items-center justify-center h-screen">
       <div className="h-[700px] w-[400px] bg-white rounded-lg shadow-[0px_3px_10px_rgba(0,0,0,0.3)] overflow-hidden flex flex-col">
         <div className="cursor-auto flex p-2 flex-row-reverse">
-          <Link
-            to={
-              "https://displayads-formats.googleusercontent.com/da/b/html5UploadAd.html"
-            }
+          <a
+            href="https://displayads-formats.googleusercontent.com/da/b/html5UploadAd.html"
             target="_blank"
-            className="flex p-2 "
+            className="flex p-2"
           >
             <IoMdClose size={25} />
-          </Link>
+          </a>
         </div>
         <div className="flex flex-col justify-between h-full">
           <div className="flex flex-col items-center">
-            <Link
-              to="/home"
+            <a
               className="bg-white underline decoration-1 rounded-4xl text-xl text-[#5a82b4] font-bold text-center"
             >
               Get the App
-            </Link>
+            </a>
             <div>
               <Crucigrama
                 selectedCell={selectedCell}
@@ -106,6 +97,7 @@ function Home() {
                 currentQuestionIndex={currentQuestionIndex}
                 setCurrentQuestionIndex={setCurrentQuestionIndex}
                 direction={direction}
+                setCurrentPage={setCurrentPage}
               />
             </div>
           </div>

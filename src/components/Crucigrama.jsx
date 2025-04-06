@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { questions } from "../assets/utils/crossword";
-import { useNavigate } from "react-router";
 
 const gridSize = 5;
 
@@ -11,8 +10,8 @@ const Crucigrama = ({
   currentQuestion,
   setCurrentQuestionIndex,
   direction,
+  setCurrentPage,
 }) => {
-  const navigate = useNavigate();
   const grid = Array(gridSize)
     .fill(null)
     .map(() => Array(gridSize).fill(null));
@@ -87,9 +86,9 @@ const Crucigrama = ({
     const allCompleted = allValidCells.every((key) => userGrid[key]?.trim());
 
     if (allCompleted) {
-      navigate("/download");
+      setCurrentPage("end");
     }
-  }, [userGrid, navigate]);
+  }, [setCurrentPage, userGrid]);
 
   return (
     <div className="grid grid-cols-5 border-2 mt-4 relative">

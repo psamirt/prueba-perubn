@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router";
 import { IoMdClose } from "react-icons/io";
 
 function EndPage() {
@@ -27,12 +26,11 @@ function EndPage() {
           <img className="w-[45%] mr-5" src="/images/A_HA_BLUE_SHADOW_5.gif" />
         </div>
         <div className="flex flex-col justify-center items-center mt-8">
-          <Link
-            to="/home"
-            className="p-2 bg-white w-[120px] rounded-4xl text-sm text-[#5a82b4] font-bold text-center"
+          <a
+            className="p-2 bg-white w-[120px] rounded-4xl text-sm text-[#5a82b4] font-bold text-center cursor-pointer"
           >
             Get the App
-          </Link>
+          </a>
         </div>
       </div>
     </div>
